@@ -3,7 +3,6 @@ import numpy as np
 from map import Map
 from node import Node
 from solver import DijkstraSolver
-from visualizer import Visualizer
 
 def main():
     map = Map(width=600, height=250, clearance=5)
@@ -21,6 +20,14 @@ def main():
 
         print("\nInvalid start or end state. Try again.")
 
+    solver = DijkstraSolver(start, end, map)
+    start_time = time.time()
+    path = solver.solve()
+    end_time = time.time()
+    print(f"\nFound path in {end_time - start_time} seconds.")
+    print("Distance from state to goal : ", path[-1].cost_to_come)
+
+    nodes = solver.get_explored_nodes()
 
 if __name__ == "__main__":
     main()
