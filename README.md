@@ -1,4 +1,4 @@
-# ENPM 661 - Project 2
+# Dijkstra's Solver
 
 ## Dependencies
 
